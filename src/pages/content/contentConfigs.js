@@ -1,0 +1,142 @@
+import { storyService, strategyService, achievementService, productService, enquiryService, videoService } from '../../services/contentService';
+
+export const CONTENT_CONFIGS = {
+  stories: {
+    key: 'stories',
+    moderationType: 'stories',
+    labelKey: 'content.stories.label',
+    singularKey: 'content.stories.singular',
+    service: storyService,
+    titleField: 'title',
+    imageField: 'coverImage',
+    dateField: 'publishedAt',
+    searchPlaceholderKey: 'content.stories.searchPlaceholder',
+    fields: [
+      { name: 'title', labelKey: 'field.title', type: 'text', required: true, max: 255 },
+      { name: 'content', labelKey: 'field.storyContent', type: 'textarea', required: true, rows: 10, full: true },
+    ],
+    fileFields: [
+      { name: 'coverImage', labelKey: 'field.coverImage', kind: 'image' },
+      { name: 'coverImage2', labelKey: 'field.coverImage2', kind: 'image' },
+    ],
+  },
+  strategies: {
+    key: 'strategies',
+    moderationType: 'strategies',
+    labelKey: 'content.strategies.label',
+    singularKey: 'content.strategies.singular',
+    service: strategyService,
+    titleField: 'title',
+    imageField: 'coverImage',
+    dateField: 'publishedAt',
+    searchPlaceholderKey: 'content.strategies.searchPlaceholder',
+    fields: [
+      { name: 'title', labelKey: 'field.title', type: 'text', required: true, max: 255 },
+      { name: 'content', labelKey: 'field.strategyContent', type: 'textarea', required: true, rows: 10, full: true },
+    ],
+    fileFields: [
+      { name: 'coverImage', labelKey: 'field.coverImage', kind: 'image' },
+      { name: 'coverImage2', labelKey: 'field.coverImage2', kind: 'image' },
+    ],
+  },
+  achievements: {
+    key: 'achievements',
+    moderationType: 'achievements',
+    labelKey: 'content.achievements.label',
+    singularKey: 'content.achievements.singular',
+    service: achievementService,
+    titleField: 'title',
+    imageField: 'image',
+    dateField: 'awardDate',
+    searchPlaceholderKey: 'content.achievements.searchPlaceholder',
+    fields: [
+      { name: 'title', labelKey: 'field.title', type: 'text', required: true, max: 255 },
+      { name: 'awardName', labelKey: 'field.awardName', type: 'text', max: 255 },
+      { name: 'awardedBy', labelKey: 'field.awardedBy', type: 'text', max: 255 },
+      { name: 'awardDate', labelKey: 'field.awardDate', type: 'date' },
+      { name: 'description', labelKey: 'field.description', type: 'textarea', rows: 6, full: true },
+    ],
+    fileFields: [
+      { name: 'image', labelKey: 'field.image', kind: 'image' },
+      { name: 'image2', labelKey: 'field.image2', kind: 'image' },
+    ],
+  },
+  products: {
+    key: 'products',
+    moderationType: 'products',
+    labelKey: 'content.products.label',
+    singularKey: 'content.products.singular',
+    service: productService,
+    titleField: 'name',
+    imageField: 'image',
+    dateField: 'launchDate',
+    searchPlaceholderKey: 'content.products.searchPlaceholder',
+    fields: [
+      { name: 'name', labelKey: 'field.productName', type: 'text', required: true, max: 255 },
+      { name: 'launchDate', labelKey: 'field.launchDate', type: 'date', hintKey: 'field.launchDateHint' },
+      { name: 'description', labelKey: 'field.description', type: 'textarea', rows: 6, full: true },
+    ],
+    fileFields: [
+      { name: 'image', labelKey: 'field.productImage', kind: 'image' },
+      { name: 'image2', labelKey: 'field.productImage2', kind: 'image' },
+    ],
+    listFilters: [
+      {
+        name: 'upcoming',
+        labelKey: 'content.filter.upcoming.label',
+        options: [
+          { value: '', labelKey: 'content.filter.upcoming.all' },
+          { value: 'true', labelKey: 'content.filter.upcoming.true' },
+          { value: 'false', labelKey: 'content.filter.upcoming.false' },
+        ],
+      },
+    ],
+  },
+  enquiries: {
+    key: 'enquiries',
+    moderationType: 'enquiries',
+    labelKey: 'content.enquiries.label',
+    singularKey: 'content.enquiries.singular',
+    service: enquiryService,
+    titleField: 'title',
+    imageField: null,
+    dateField: 'createdAt',
+    searchPlaceholderKey: 'content.enquiries.searchPlaceholder',
+    fields: [
+      { name: 'title', labelKey: 'field.title', type: 'text', required: true, max: 255 },
+      { name: 'category', labelKey: 'field.category', type: 'text', max: 120 },
+      { name: 'location', labelKey: 'field.enquiryLocation', type: 'text', max: 180 },
+      { name: 'contactInfo', labelKey: 'field.contactInfo', type: 'text', max: 500, full: true },
+      { name: 'description', labelKey: 'field.description', type: 'textarea', required: true, rows: 6, full: true },
+    ],
+    fileFields: [],
+  },
+  videos: {
+    key: 'videos',
+    moderationType: 'videos',
+    labelKey: 'content.videos.label',
+    singularKey: 'content.videos.singular',
+    service: videoService,
+    titleField: 'title',
+    imageField: 'thumbnail',
+    dateField: 'createdAt',
+    searchPlaceholderKey: 'content.videos.searchPlaceholder',
+    fields: [
+      { name: 'title', labelKey: 'field.title', type: 'text', required: true, max: 255 },
+      { name: 'description', labelKey: 'field.description', type: 'textarea', rows: 6, full: true },
+    ],
+    fileFields: [{ name: 'thumbnail', labelKey: 'field.thumbnail', kind: 'image' }],
+    isVideoSource: true, // special-cased in the form: youtubeUrl OR an uploaded video file
+    listFilters: [
+      {
+        name: 'type',
+        labelKey: 'content.filter.type.label',
+        options: [
+          { value: '', labelKey: 'content.filter.type.all' },
+          { value: 'YOUTUBE', labelKey: 'content.filter.type.youtube' },
+          { value: 'UPLOAD', labelKey: 'content.filter.type.upload' },
+        ],
+      },
+    ],
+  },
+};

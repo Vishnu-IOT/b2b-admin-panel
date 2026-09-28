@@ -1,0 +1,66 @@
+.business-card {
+  display: block;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line);
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+}
+.business-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.business-card__image--placeholder {
+  aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 34px; color: var(--color-accent); background: var(--color-bg-soft);
+}
+.directory-more { text-align: center; margin-top: 30px; }
+.business-card__image { overflow: hidden; }
+.business-card__image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .5s var(--ease); }
+.business-card:hover .business-card__image img { transform: scale(1.05); }
+.business-card__body { padding: 20px; }
+.business-card__meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.business-card__location { font-size: 12px; color: var(--color-muted); }
+.business-card__body h4 { font-family: var(--font-display); font-size: 19px; margin: 0 0 8px; }
+.business-card__body p { font-size: 13.5px; color: var(--color-ink-soft); line-height: 1.5; min-height: 40px; }
+.business-card__foot {
+  display: flex; justify-content: space-between;
+  font-size: 11.5px; color: var(--color-muted);
+  border-top: 1px solid var(--color-line);
+  margin-top: 14px; padding-top: 12px;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 20px;
+}
+.directory-grid--preview { padding-bottom: 0; }
+
+.directory-full { padding: 40px 0 90px; }
+.directory-filters {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.directory-filters input {
+  flex: 1;
+  min-width: 220px;
+  padding: 13px 16px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg-alt);
+  font-size: 14px;
+}
+.directory-filters select {
+  padding: 13px 16px;
+  border: 1px solid var(--color-line);
+  background: var(--color-bg-alt);
+  font-size: 14px;
+}
+.directory-count { color: var(--color-muted); font-size: 13px; margin: 18px 0 24px; }
+.directory-empty { color: var(--color-muted); grid-column: 1 / -1; padding: 40px 0; text-align: center; }
+
+@media (max-width: 980px) {
+  .directory-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .directory-grid { grid-template-columns: 1fr; }
+}

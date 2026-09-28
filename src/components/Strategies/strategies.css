@@ -1,0 +1,16 @@
+.strategies-section { padding: 80px 0; background: var(--color-bg-soft); border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+.strategies-scroll { margin-top: 8px; }
+.strategy-card { display: block; width: 300px; background: var(--color-bg-alt); border: 1px solid var(--color-line); }
+.strategy-card__image { overflow: hidden; background: var(--color-bg-soft); }
+.strategy-card__image img { width: 100%; aspect-ratio: 3/2; object-fit: cover; transition: transform .5s var(--ease); }
+.strategy-card:hover .strategy-card__image img { transform: scale(1.05); }
+.strategy-card__image--placeholder {
+  aspect-ratio: 3/2; display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 32px; color: var(--color-accent);
+}
+.strategy-card__body { padding: 20px; }
+.strategy-card__body h4 { font-family: var(--font-display); font-size: 18px; margin: 10px 0 8px; line-height: 1.3; }
+.strategy-card__body p { font-size: 13.5px; color: var(--color-ink-soft); line-height: 1.5; margin-bottom: 12px; }
+.strategy-card__meta { font-size: 11.5px; color: var(--color-muted); }
+
+.strategies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }

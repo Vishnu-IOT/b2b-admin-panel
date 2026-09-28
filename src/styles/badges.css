@@ -1,0 +1,68 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.badge--PUBLISHED {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  border-color: var(--color-success-border);
+}
+.badge--PENDING {
+  color: var(--color-pending);
+  background: var(--color-pending-bg);
+  border-color: var(--color-pending-border);
+}
+.badge--DRAFT {
+  color: var(--color-draft);
+  background: var(--color-draft-bg);
+  border-color: var(--color-draft-border);
+}
+.badge--REJECTED {
+  color: var(--color-danger-strong);
+  background: var(--color-danger-bg);
+  border-color: var(--color-danger-border);
+}
+.badge--ACTIVE {
+  color: var(--color-success);
+  background: var(--color-success-bg);
+  border-color: var(--color-success-border);
+}
+.badge--INACTIVE {
+  color: var(--color-draft);
+  background: var(--color-draft-bg);
+  border-color: var(--color-draft-border);
+}
+
+.badge--role {
+  color: var(--color-navy);
+  background: var(--color-navy-soft);
+  border-color: #dde1ee;
+}
+.badge--neutral {
+  color: var(--color-text-muted);
+  background: var(--color-surface-sunken);
+  border-color: var(--color-border);
+}
+.badge--neutral::before {
+  display: none;
+}
+.badge--role::before {
+  display: none;
+}

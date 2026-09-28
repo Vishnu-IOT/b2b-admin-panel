@@ -1,0 +1,62 @@
+:root {
+  /* Surfaces */
+  --color-bg: #f7f7f5;
+  --color-surface: #ffffff;
+  --color-surface-raised: #ffffff;
+  --color-surface-sunken: #f1f1ee;
+  --color-border: #e4e3de;
+  --color-border-strong: #d3d2cb;
+
+  /* Text */
+  --color-text: #1f2530;
+  --color-text-muted: #5b6270;
+  --color-text-faint: #8a8f9a;
+  --color-text-inverse: #ffffff;
+
+  /* Accent — restrained editorial teal/navy, no gold */
+  --color-accent: #1f5f5b;
+  --color-accent-strong: #163f3d;
+  --color-accent-soft: #e7f0ef;
+  --color-accent-soft-border: #cfe0de;
+
+  --color-navy: #1c2540;
+  --color-navy-soft: #eef0f6;
+
+  /* Status */
+  --color-success: #1e7d46;
+  --color-success-bg: #e8f5ec;
+  --color-success-border: #c8e6d2;
+
+  --color-pending: #a9600f;
+  --color-pending-bg: #fbf1e2;
+  --color-pending-border: #f0dcb8;
+
+  --color-draft: #565e6c;
+  --color-draft-bg: #eef0f2;
+  --color-draft-border: #dadde2;
+
+  --color-danger: #a6293a;
+  --color-danger-bg: #fbeaec;
+  --color-danger-border: #f0ccd1;
+  --color-danger-strong: #7f1f2c;
+
+  /* Radii / shadow */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(28, 37, 64, 0.06);
+  --shadow-md: 0 6px 20px rgba(28, 37, 64, 0.08);
+  --shadow-lg: 0 16px 40px rgba(28, 37, 64, 0.14);
+
+  /* Layout */
+  --sidebar-width: 258px;
+  --topbar-height: 64px;
+  --content-max: 1280px;
+
+  /* Type */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+
+  --transition-fast: 140ms ease;
+  --transition-base: 200ms ease;
+}

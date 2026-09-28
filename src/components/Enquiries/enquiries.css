@@ -1,0 +1,19 @@
+.enquiries-section { padding: 80px 0; background: var(--color-bg); }
+.enquiry-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.enquiry-card {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-line);
+  padding: 22px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.enquiry-card__top { display: flex; justify-content: space-between; align-items: center; }
+.enquiry-card__date { font-size: 11.5px; color: var(--color-muted); }
+.enquiry-card h4 { font-family: var(--font-display); font-size: 18px; margin: 0; line-height: 1.35; }
+.enquiry-card__company { font-size: 12.5px; color: var(--color-muted); margin: -4px 0 0; }
+.enquiry-card__desc { font-size: 13.5px; color: var(--color-ink-soft); line-height: 1.55; }
+.enquiry-card__facts { border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); padding: 12px 0; margin: 4px 0; }
+.enquiry-card__facts span { display: block; font-size: 11px; text-transform: uppercase; color: var(--color-muted); margin-bottom: 3px; }
+.enquiry-card__facts strong { font-size: 13.5px; }
+
+@media (max-width: 980px) { .enquiry-list { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 620px) { .enquiry-list { grid-template-columns: 1fr; } }

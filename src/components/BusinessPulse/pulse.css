@@ -1,0 +1,50 @@
+.pulse {
+  background: var(--color-ink);
+  color: #F4EFE6;
+  padding: 22px 0;
+  overflow: hidden;
+}
+.pulse__label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.pulse__live-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--color-live);
+  animation: pulseDot 1.6s infinite;
+}
+.pulse__label {
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+  font-weight: 700;
+}
+.pulse__track-wrap { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.pulse__track {
+  display: flex;
+  gap: 48px;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.pulse__track:hover { animation-play-state: paused; }
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.pulse__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.pulse__tag {
+  background: rgba(124,151,172,0.14);
+  border-color: rgba(124,151,172,0.4);
+  color: var(--color-accent-soft);
+}
+.pulse__text { color: #E7E1D2; }
+.pulse__time { color: #8C8471; font-size: 12px; }
