@@ -13,7 +13,7 @@ npm start                 # http://localhost:3000
 ```
 
 Make sure the backend is running (`npm run dev` in the backend project, default
-`http://localhost:5000`) and that its CORS config allows `http://localhost:3000`.
+`https://darkslateblue-vulture-672842.hostingersite.com/api`) and that its CORS config allows `http://localhost:3000`.
 
 ### Signing in
 

@@ -1,4 +1,4 @@
-const FILES_ORIGIN = process.env.REACT_APP_FILES_ORIGIN || 'http://localhost:5000';
+const FILES_ORIGIN = process.env.REACT_APP_FILES_ORIGIN || 'https://darkslateblue-vulture-672842.hostingersite.com/api';
 
 /**
  * The backend stores only the public path of an uploaded file, e.g. "/uploads/images/xxx.jpg"

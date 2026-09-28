@@ -2,7 +2,7 @@ import axios from "axios";
 
 // The backend serves the API at :5000/api and static uploads at :5000/uploads.
 // Override with REACT_APP_API_URL in a .env file when deploying.
-export const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000/api";
+export const API_BASE = process.env.REACT_APP_API_URL || "https://darkslateblue-vulture-672842.hostingersite.com/api/api";
 export const FILES_BASE = API_BASE.replace(/\/api\/?$/, "");
 
 const client = axios.create({ baseURL: API_BASE });
