@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = process.env.REACT_APP_API_URL || 'https://darkslateblue-vulture-672842.hostingersite.com/api/api';
+const baseURL = process.env.REACT_APP_API_URL || 'https://darkslateblue-vulture-672842.hostingersite.com/api';
 
 export const TOKEN_KEY = 'b2b_admin_token';
 
