@@ -226,11 +226,11 @@ export default function BusinessesPage() {
                 <div className="item-card" key={b.id}>
                   <div className="item-card__top">
                     {b.logo ? <img src={resolveFileUrl(b.logo)} alt="" className="cell-thumb__img" /> : <div className="cell-thumb__placeholder">{initials(b.companyName)}</div>}
-                    <div style={{ flex: 1 }}>
+                    <div className="item-card__body">
                       <div className="item-card__title">{b.companyName}</div>
                       <div className="item-card__meta">{b.owner?.name || '—'}</div>
+                      <div className="item-card__badge"><StatusBadge status={b.status} /></div>
                     </div>
-                    <StatusBadge status={b.status} />
                   </div>
                   <div className="item-card__actions">
                     {b.status === 'PENDING' && (

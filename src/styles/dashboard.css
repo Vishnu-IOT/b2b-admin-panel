@@ -123,6 +123,22 @@
 .timeline-item:last-child {
   border-bottom: none;
 }
+.timeline-item > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.timeline-item .badge {
+  align-self: flex-start;
+}
+@media (max-width: 560px) {
+  /* badge goes under the title, lined up with the text (dot 8px + gap 12px) */
+  .timeline-item {
+    flex-wrap: wrap;
+  }
+  .timeline-item .badge {
+    margin-left: 20px;
+  }
+}
 .timeline-item__dot {
   width: 8px;
   height: 8px;

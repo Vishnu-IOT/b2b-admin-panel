@@ -10,13 +10,24 @@
   text-transform: uppercase;
   border: 1px solid transparent;
   white-space: nowrap;
+  line-height: 1.35;
+  flex-shrink: 0; /* never get squeezed by a long title next to it */
+  max-width: 100%;
 }
 .badge::before {
   content: '';
   width: 6px;
   height: 6px;
+  min-width: 6px; /* keep the dot round when the badge is tight */
   border-radius: 50%;
   background: currentColor;
+}
+
+@media (max-width: 560px) {
+  .badge {
+    font-size: 0.68rem;
+    padding: 3px 9px;
+  }
 }
 
 .badge--PUBLISHED {

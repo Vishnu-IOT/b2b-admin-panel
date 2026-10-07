@@ -175,11 +175,11 @@ export default function UsersPage() {
                 <div className="item-card" key={u.id}>
                   <div className="item-card__top">
                     <div className="avatar-chip__circle">{initials(u.name)}</div>
-                    <div style={{ flex: 1 }}>
+                    <div className="item-card__body">
                       <div className="item-card__title">{u.name}</div>
                       <div className="item-card__meta">{u.email}</div>
+                      <div className="item-card__badge"><RoleBadge role={u.role} /></div>
                     </div>
-                    <RoleBadge role={u.role} />
                   </div>
                   <div className="item-card__actions">
                     <Button variant="secondary" size="sm" onClick={() => openEdit(u)}>

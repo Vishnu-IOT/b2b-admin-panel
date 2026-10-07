@@ -135,7 +135,7 @@ export default function ModerationPage() {
                 {items.map((item) => (
                   <tr key={item.id}>
                     <td className="cell-title">{itemTitle(type, item)}</td>
-                    <td className="text-muted">{itemOwnerLabel(type, item) || '—'}</td>
+                    <td className="text-muted">{itemOwnerLabel(type, item, t) || '—'}</td>
                     <td>
                       <StatusBadge status={item.status} />
                     </td>
@@ -166,11 +166,11 @@ export default function ModerationPage() {
               {items.map((item) => (
                 <div className="item-card" key={item.id}>
                   <div className="item-card__top">
-                    <div style={{ flex: 1 }}>
+                    <div className="item-card__body">
                       <div className="item-card__title">{itemTitle(type, item)}</div>
-                      <div className="item-card__meta">{itemOwnerLabel(type, item)}</div>
+                      <div className="item-card__meta">{itemOwnerLabel(type, item, t)}</div>
+                      <div className="item-card__badge"><StatusBadge status={item.status} /></div>
                     </div>
-                    <StatusBadge status={item.status} />
                   </div>
                   <div className="item-card__actions">
                     {item.status !== 'PUBLISHED' && (

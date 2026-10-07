@@ -18,6 +18,7 @@ export default function ContentDetailModal({ open, onClose, config, item }) {
       <div className="detail-panel__meta">
         <StatusBadge status={item.status} />
         {item.business?.companyName && <span>{item.business.companyName}</span>}
+        {item.businessId === null && <span>{t('content.adminPost')}</span>}
         <span>
           {t('common.created')} {formatDateTime(item.createdAt)}
         </span>
@@ -67,6 +68,17 @@ export default function ContentDetailModal({ open, onClose, config, item }) {
             </div>
           ))}
       </div>
+
+      {item.businessId === null && (
+        <div className="field">
+          <label className="field__label">
+            <Icon name="building" size={13} /> {t('content.selectBusiness')}
+          </label>
+          <div className="detail-panel__content" style={{ fontSize: '0.86rem' }}>
+            {t('content.adminPost')}
+          </div>
+        </div>
+      )}
 
       {item.business && (
         <div className="field">

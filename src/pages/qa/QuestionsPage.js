@@ -152,7 +152,7 @@ export default function QuestionsPage() {
           {items.map((q) => (
             <div className="qa-item" key={q.id}>
               <div className="qa-item__top">
-                <div style={{ flex: 1, cursor: 'pointer' }} onClick={() => setDetailId(q.id)}>
+                <div className="qa-item__body" onClick={() => setDetailId(q.id)}>
                   <div className="qa-item__title">{q.title}</div>
                   <div className="qa-item__desc">{q.description.length > 160 ? `${q.description.slice(0, 160)}…` : q.description}</div>
                   <div className="qa-item__meta">

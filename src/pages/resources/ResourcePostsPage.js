@@ -201,11 +201,11 @@ export default function ResourcePostsPage() {
                 <div className="item-card" key={p.id}>
                   <div className="item-card__top">
                     {p.coverImage ? <img src={resolveFileUrl(p.coverImage)} alt="" className="cell-thumb__img" /> : <div className="cell-thumb__placeholder">{initials(p.title)}</div>}
-                    <div style={{ flex: 1 }}>
+                    <div className="item-card__body">
                       <div className="item-card__title">{p.title}</div>
                       <div className="item-card__meta">{p.category?.name}</div>
+                      <div className="item-card__badge"><StatusBadge status={p.status} /></div>
                     </div>
-                    <StatusBadge status={p.status} />
                   </div>
                   <div className="item-card__actions">
                     <Button variant="secondary" size="sm" onClick={() => openEdit(p)}>

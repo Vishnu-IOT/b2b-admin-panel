@@ -138,6 +138,23 @@
   align-items: flex-start;
   margin-bottom: 10px;
 }
+.item-card__top > .cell-thumb__img,
+.item-card__top > .cell-thumb__placeholder,
+.item-card__top > .avatar-chip__circle {
+  flex-shrink: 0;
+}
+/* min-width: 0 lets a long title wrap instead of pushing the badge out of the card */
+.item-card__body {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.item-card__badge {
+  margin-top: 8px;
+}
+.item-card__title,
+.item-card__meta {
+  overflow-wrap: anywhere;
+}
 .item-card__title {
   font-weight: 600;
   color: var(--color-navy);

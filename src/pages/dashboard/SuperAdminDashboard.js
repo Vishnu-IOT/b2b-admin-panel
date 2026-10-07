@@ -95,7 +95,7 @@ export default function SuperAdminDashboard() {
                           {moderationTypeLabel(type, t)} · {itemTitle(type, item)}
                         </div>
                         <div className="timeline-item__meta">
-                          {itemOwnerLabel(type, item) ? `${itemOwnerLabel(type, item)} · ` : ''}
+                          {itemOwnerLabel(type, item, t) ? `${itemOwnerLabel(type, item, t)} · ` : ''}
                           {timeAgo(item.createdAt)}
                         </div>
                       </div>
@@ -147,6 +147,21 @@ export default function SuperAdminDashboard() {
                     <Icon name="users" size={16} />
                   </div>
                   <strong>{t('dashboard.addBusinessAdmin')}</strong>
+                </Link>
+                <Link className="quick-action" to="/stories?action=create">
+                  <div className="quick-action__icon">
+                    <Icon name="fileText" size={16} />
+                  </div>
+                  <strong>{t('dashboard.postStory')}</strong>
+                  <span className="text-muted" style={{ fontSize: '0.76rem' }}>
+                    {t('dashboard.postAsAdminDesc')}
+                  </span>
+                </Link>
+                <Link className="quick-action" to="/achievements?action=create">
+                  <div className="quick-action__icon">
+                    <Icon name="award" size={16} />
+                  </div>
+                  <strong>{t('dashboard.postAchievement')}</strong>
                 </Link>
                 <Link className="quick-action" to="/resource-posts?action=create">
                   <div className="quick-action__icon">

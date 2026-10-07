@@ -12,8 +12,10 @@ export function itemTitle(type, item) {
   return item.title || item.name || `#${item.id}`;
 }
 
-export function itemOwnerLabel(type, item) {
+// `t` is optional: when given, posts without a business are labelled "Admin post".
+export function itemOwnerLabel(type, item, t) {
   if (item?.business?.companyName) return item.business.companyName;
+  if (t && item && item.businessId === null) return t('content.adminPost');
   if (item?.owner?.name) return item.owner.name;
   if (item?.user?.name) return item.user.name;
   return null;

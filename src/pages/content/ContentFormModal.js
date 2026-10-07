@@ -24,7 +24,7 @@ const emptyValues = (config) => {
   return v;
 };
 
-export default function ContentFormModal({ open, onClose, config, item, isSuperAdmin, businessOptions, onSaved }) {
+export default function ContentFormModal({ open, onClose, config, item, isSuperAdmin, businessOptions, defaultBusinessId = '', onSaved }) {
   const toast = useToast();
   const { t } = useLanguage();
   const isEdit = Boolean(item);
@@ -52,14 +52,15 @@ export default function ContentFormModal({ open, onClose, config, item, isSuperA
         v.video = item.videoPath || null;
       }
       setValues(v);
-      setBusinessId(item.businessId || '');
+      setBusinessId(item.businessId ? String(item.businessId) : ''); // '' = admin post (no business)
       setStatus(item.status || 'PUBLISHED');
     } else {
       setValues(emptyValues(config));
-      setBusinessId('');
+      setBusinessId(defaultBusinessId || '');
       setStatus('PUBLISHED');
     }
     setErrors({});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, item, config]);
 
   const setField = (name, value) => setValues((prev) => ({ ...prev, [name]: value }));
@@ -69,7 +70,6 @@ export default function ContentFormModal({ open, onClose, config, item, isSuperA
     config.fields.forEach((f) => {
       if (f.required && !String(values[f.name] || '').trim()) errs[f.name] = t(f.labelKey);
     });
-    if (isSuperAdmin && !isEdit && !businessId) errs.businessId = t('content.selectBusinessPlaceholder');
     if (config.isVideoSource) {
       if (values.sourceType === 'YOUTUBE' && !String(values.youtubeUrl || '').trim()) {
         errs.youtubeUrl = t('content.youtubeLink');
@@ -97,12 +97,9 @@ export default function ContentFormModal({ open, onClose, config, item, isSuperA
         payload.video = values.video;
       }
     }
-    if (isSuperAdmin) {
-      if (!isEdit) payload.businessId = businessId;
-      payload.status = statusToSend;
-    } else {
-      payload.status = statusToSend;
-    }
+    // Super Admin: '' means "no business" — an admin post. Sent on edit too so a post can be moved or detached.
+    if (isSuperAdmin) payload.businessId = businessId;
+    payload.status = statusToSend;
     return payload;
   };
 
@@ -129,15 +126,13 @@ export default function ContentFormModal({ open, onClose, config, item, isSuperA
   return (
     <Modal open={open} onClose={onClose} title={isEdit ? t('content.modalTitleEdit', { singular }) : t('content.modalTitleNew', { singular })} size="lg">
       <form onSubmit={(e) => e.preventDefault()}>
-        {isSuperAdmin && !isEdit && (
+        {isSuperAdmin && (
           <SelectField
             label={t('content.selectBusiness')}
-            required
-            placeholder={t('content.selectBusinessPlaceholder')}
+            hint={t('content.adminPostHint')}
             value={businessId}
             onChange={(e) => setBusinessId(e.target.value)}
-            options={businessOptions}
-            error={errors.businessId}
+            options={[{ value: '', label: t('content.noBusinessOption') }, ...businessOptions]}
             full
           />
         )}

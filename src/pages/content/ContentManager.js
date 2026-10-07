@@ -4,7 +4,7 @@ import PageHeader from '../../components/common/PageHeader';
 import Button from '../../components/common/Button';
 import Icon from '../../components/common/Icon';
 import SearchInput from '../../components/common/SearchInput';
-import StatusBadge from '../../components/common/StatusBadge';
+import StatusBadge, { NeutralBadge } from '../../components/common/StatusBadge';
 import Pagination from '../../components/common/Pagination';
 import { EmptyState, TableSkeleton, ErrorBanner } from '../../components/common/States';
 import { ConfirmDialog } from '../../components/common/Modal';
@@ -197,6 +197,7 @@ export default function ContentManager({ config }) {
             {isSuperAdmin && (
               <select className="select" value={businessFilter} onChange={(e) => setBusinessFilter(e.target.value)}>
                 <option value="">{t('common.allBusinesses')}</option>
+                <option value="none">{t('content.filter.adminPosts')}</option>
                 {businessOptions.map((b) => (
                   <option key={b.value} value={b.value}>
                     {b.label}
@@ -249,7 +250,7 @@ export default function ContentManager({ config }) {
                         </div>
                       </div>
                     </td>
-                    {isSuperAdmin && <td>{item.business?.companyName || '—'}</td>}
+                    {isSuperAdmin && <td>{item.business?.companyName || <NeutralBadge>{t('content.adminPost')}</NeutralBadge>}</td>}
                     <td>
                       <StatusBadge status={item.status} />
                     </td>
@@ -299,11 +300,11 @@ export default function ContentManager({ config }) {
                 <div className="item-card" key={item.id}>
                   <div className="item-card__top">
                     {config.imageField && renderThumb(item)}
-                    <div style={{ flex: 1 }}>
+                    <div className="item-card__body">
                       <div className="item-card__title">{item[config.titleField]}</div>
-                      <div className="item-card__meta">{isSuperAdmin ? item.business?.companyName : formatDate(item[config.dateField] || item.createdAt)}</div>
+                      <div className="item-card__meta">{isSuperAdmin ? item.business?.companyName || t('content.adminPost') : formatDate(item[config.dateField] || item.createdAt)}</div>
+                      <div className="item-card__badge"><StatusBadge status={item.status} /></div>
                     </div>
-                    <StatusBadge status={item.status} />
                   </div>
                   <div className="item-card__actions">
                     {isSuperAdmin && item.status === 'PENDING' && (
@@ -342,6 +343,7 @@ export default function ContentManager({ config }) {
         item={editItem}
         isSuperAdmin={isSuperAdmin}
         businessOptions={businessOptions}
+        defaultBusinessId={businessFilter && businessFilter !== 'none' ? businessFilter : ''}
         onSaved={handleSaved}
       />
 
